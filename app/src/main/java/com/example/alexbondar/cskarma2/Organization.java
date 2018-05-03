@@ -9,18 +9,16 @@ import static java.lang.System.exit;
 
 public class Organization {
     private String name;
-    private CharSequence desc;
-    private URL website;
-    private int id;
+    private String desc;
+    private String website;
+    private List<Job> jobs;
+    private String type;
 
-    public Organization(String name, CharSequence desc, String website_url) {
+    public Organization(String name, String desc, String website_url, String type) {
         this.name = name;
         this.desc = desc;
-        try {
-            this.website = new URL(website_url);
-        } catch (MalformedURLException e) {
-            exit(1);
-        }
+        this.jobs = new LinkedList<>();
+        this.website = website_url;
     }
 
     public String getName() {
@@ -31,9 +29,11 @@ public class Organization {
         return desc;
     }
 
-    public URL getWebsite() {
+    public String getWebsite() {
         return website;
     }
 
-    public int getId() { return id; }
+    public List<Job> getJobs() {
+        return jobs;
+    }
 }
