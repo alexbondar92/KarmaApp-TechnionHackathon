@@ -15,19 +15,19 @@ public class Job {
     private String desc;
     private String img;
     private String region;
-    private String typeofjob;
-    private Date date;
+    private String date;
     private String timerange;
+    private String type;
 
-    public Job(String name, int id, String desc, String img, String region, String typeofjob, Date date, String timerange) {
+    public Job(String name, int id, String desc, String img, String region, String typeofjob, String date, String timerange, String type) {
         this.name = name;
         this.id = id;
         this.desc = desc;
         this.img = img;
         this.region = region;
-        this.typeofjob = typeofjob;
-        this.date = date;
         this.timerange = timerange;
+        this.type = typeofjob;
+        this.date = date;
     }
 
     public String getName() {
@@ -54,7 +54,9 @@ public class Job {
         this.img = img;
     }
 
+    public void setType(String type) { this.type = type;}
 
+    public String getType(String type) {return this.type;}
 
     public int getId() {
         return id;
@@ -73,19 +75,11 @@ public class Job {
         this.region = region;
     }
 
-    public String getTypeofjob() {
-        return typeofjob;
-    }
-
-    public void setTypeofjob(String typeofjob) {
-        this.typeofjob = typeofjob;
-    }
-
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
