@@ -19,7 +19,15 @@ public class Job {
     private Date date;
     private String timerange;
 
-    public Job() {
+    public Job(String name, int id, String desc, String img, String region, String typeofjob, Date date, String timerange) {
+        this.name = name;
+        this.id = id;
+        this.desc = desc;
+        this.img = img;
+        this.region = region;
+        this.typeofjob = typeofjob;
+        this.date = date;
+        this.timerange = timerange;
     }
 
     public String getName() {
