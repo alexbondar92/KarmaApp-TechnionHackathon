@@ -26,7 +26,7 @@ public class CustomAdapter extends BaseAdapter {
     public CustomAdapter(Context c, List<Job> jobs) {
         this.c = c;
         this.jobs = jobs;
-    }`
+    }
 
 
 
@@ -55,7 +55,6 @@ public class CustomAdapter extends BaseAdapter {
             convertView=inflater.inflate(R.layout.custom_adapter,parent,false);
         }
         Holder hold=new Holder(convertView);
-        hold.name.setText(jobs.get(position).getName());
         hold.area.setText(jobs.get(position).getRegion());
         hold.desc.setText(jobs.get(position).getDesc());
         hold.time.setText(jobs.get(position).getTimerange());
