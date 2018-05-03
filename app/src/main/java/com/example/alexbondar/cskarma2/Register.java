@@ -1,6 +1,7 @@
 package com.example.alexbondar.cskarma2;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -47,6 +48,9 @@ public class Register extends AppCompatActivity {
                 if(!isPhoneValid(phone.getText().toString())){
                     phone.setError("Please enter a valid phone number");
                 }
+
+                Intent intent = new Intent(view.getContext(), DisplayOrganizationsActivity.class);
+                startActivity(intent);
 
             }
         });
