@@ -4,9 +4,9 @@ package com.example.alexbondar.cskarma2;
 
 import java.util.List;
 
-public interface DataParser {
+public class DataParser {
 
-    public List<Job> getAllJobs();
+    // public List<Job> getAllJobs() {} ***implement
 
-    public List<Organization> getAllOrganizations();
+    // public List<Organization> getAllOrganizations() {} ***implement
 }
