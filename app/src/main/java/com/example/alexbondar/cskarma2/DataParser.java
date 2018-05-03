@@ -6,7 +6,7 @@ import java.util.List;
 
 public class DataParser {
 
-    // public List<Job> getAllJobs() {} ***implement
+     //public static List<Job> getAllJobs() {}
 
     // public List<Organization> getAllOrganizations() {} ***implement
 }

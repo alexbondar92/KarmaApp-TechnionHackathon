@@ -21,7 +21,12 @@ public class UserLoginActivity extends AppCompatActivity {
         username = (EditText)findViewById(R.id.email);
         login = (Button)findViewById(R.id.login);
         signup = (TextView)findViewById(R.id.signup);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
