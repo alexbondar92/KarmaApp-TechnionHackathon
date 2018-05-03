@@ -55,5 +55,5 @@
         android:textSize="16dp"
         android:textStyle="bold"
         android:text="New member? Click here to Sign up"/>
-    >
+
 </LinearLayout>
