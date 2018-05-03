@@ -11,7 +11,7 @@ import java.util.Date;
 //test
 public class Job {
     private String name;
-    private int id;
+    private long id;
     private String desc;
     private String img;
     private String region;
@@ -19,14 +19,14 @@ public class Job {
     private String timerange;
     private String type;
 
-    public Job(String name, int id, String desc, String img, String region, String typeofjob, String date, String timerange, String type) {
+    public Job(String name, long id, String desc, String img, String region, String type, String date, String timerange) {
         this.name = name;
         this.id = id;
         this.desc = desc;
         this.img = img;
         this.region = region;
         this.timerange = timerange;
-        this.type = typeofjob;
+        this.type = type;
         this.date = date;
     }
 
@@ -58,7 +58,7 @@ public class Job {
 
     public String getType(String type) {return this.type;}
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

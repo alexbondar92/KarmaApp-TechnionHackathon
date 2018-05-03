@@ -19,6 +19,9 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DisplayActivity extends AppCompatActivity {
 
     /**
@@ -56,7 +59,11 @@ public class DisplayActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        DataParser.getAllJobs();
+        List<Job> job_list = new ArrayList<>();
+        DataParser.getAllJobs(job_list);
+
+        List<Organization> org_list = new ArrayList<>();
+        DataParser.getAllOrganization(org_list);
 
     }
 

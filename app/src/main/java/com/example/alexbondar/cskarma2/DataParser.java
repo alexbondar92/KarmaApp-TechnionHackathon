@@ -23,11 +23,9 @@ public class DataParser {
 
     private boolean flag;
 
-    public static List<Job> getAllJobs() {
+    public static void getAllJobs(List<Job> list) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
-
-        final List<Job> list = new ArrayList<>();
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -39,7 +37,7 @@ public class DataParser {
 
                 for (String i:orgs.keySet()
                      ) {
-                    Map<String, Object> o =(Map<String, Object>) db.get(i);
+                    Map<String, Object> o =(Map<String, Object>) orgs.get(i);
                     Map<String, Object> jobs = (Map<String, Object>) o.get("jobs");
 
                     list.addAll(parse_jobs(jobs));
@@ -52,21 +50,19 @@ public class DataParser {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
 
-
         });
-        return list;
 
     }
 
     public static Job getAJob(int id){
-        return getAllJobs().stream().filter(j->j.getId() == id).collect(Collectors.toList()).get(0);
+        List<Job> l = new ArrayList<>();
+        getAllJobs(l);
+        return l.stream().filter(j->j.getId() == id).collect(Collectors.toList()).get(0);
     }
 
-    public static List<Organization> getAllOrganization(){
+    public static void getAllOrganization(List<Organization> list){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
-
-        final List<Organization> list = new ArrayList<>();
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -79,8 +75,8 @@ public class DataParser {
                 for (String i:orgs.keySet()
                         ) {
                     Map<String, Object> o =(Map<String, Object>) db.get(i);
-                    list.add(new Organization(i, (String) o.get("desc"), (String) o.get("website"), (String)o.get("type")));
-
+                    List<Job> jobs= new ArrayList<>();
+                    list.add(new Organization(i, (String) o.get("desc"), (String) o.get("website"), (String)o.get("type"), jobs));
 
                 }
             }
@@ -93,15 +89,16 @@ public class DataParser {
 
 
         });
-        return list;
     }
 
     private static List<Job> parse_jobs(Map<String, Object> jobs){
         List<Job> list = new ArrayList<>();
         for (String j:jobs.keySet()) {
 
-            Map<String, String> a_job=(Map<String, String>) jobs.get(j);
-            list.add(new Job(j, Integer.parseInt(a_job.get("id")), a_job.get("desc"), a_job.get("pic"), a_job.get("region"), a_job.get("region"), a_job.get("data"), a_job.get("time_range"), a_job.get("type")));
+            Map<String, Object> a_job=(Map<String, Object>) jobs.get(j);
+            Job job = new Job(j, (Long)a_job.get("id"), (String)a_job.get("desc"), (String)a_job.get("pic"), (String)a_job.get("region"), (String)a_job.get("type"), (String)a_job.get("date"), (String)a_job.get("time_range"));
+
+            list.add(job);
         }
 
         return list;

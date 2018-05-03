@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,7 +42,10 @@ public class OrganizationPage extends AppCompatActivity {
 
         String this_name = getIntent().getStringExtra("name");
 
-        Organization this_org = DataParser.getAllOrganization()
+        List<Organization> these_orgs = new ArrayList<>();
+        DataParser.getAllOrganization(these_orgs);
+
+        Organization this_org = these_orgs
                 .stream()
                 .distinct()
                 .filter(o1 -> (o1.getName().equals(this_name)))
@@ -68,7 +72,9 @@ public class OrganizationPage extends AppCompatActivity {
         });
         nameAgain.setText(this_org.getName());
 
-        jobs.setAdapter(new CustomAdapter(this,DataParser.getAllJobs()));
+        List<Job> list = new ArrayList<>();
+        DataParser.getAllJobs(list);
+        jobs.setAdapter(new CustomAdapter(this,list));
         jobs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JobDisplayActivity extends AppCompatActivity {
 
     ListView listv;
@@ -19,7 +22,9 @@ public class JobDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_job_display);
         listv = (ListView)findViewById(R.id.listv);
 
-        final CustomAdapter customAdapter = new CustomAdapter(this,DataParser.getAllJobs());
+        List<Job> job_list = new ArrayList<>();
+        DataParser.getAllJobs(job_list);
+        final CustomAdapter customAdapter = new CustomAdapter(this,job_list);
         listv.setAdapter(customAdapter);
         listv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

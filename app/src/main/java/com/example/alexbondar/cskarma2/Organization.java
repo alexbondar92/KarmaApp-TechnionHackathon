@@ -14,11 +14,13 @@ public class Organization {
     private List<Job> jobs;
     private String type;
 
-    public Organization(String name, String desc, String website_url, String type) {
+    public Organization(String name, String desc, String website_url, String type, List<Job> jobs) {
         this.name = name;
         this.desc = desc;
         this.jobs = new LinkedList<>();
         this.website = website_url;
+        this.type = type;
+        this.jobs = jobs;
     }
 
     public String getName() {
