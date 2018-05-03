@@ -16,7 +16,7 @@ public class OpeningScreenActivity extends AppCompatActivity {
     }
 
     public void goToOrganization(View view) {
-        Intent intent = new Intent(getApplicationContext(),Register.class);
+        Intent intent = new Intent(getApplicationContext(),UserLoginActivity.class);
         startActivity(intent);
         finish();
     }
