@@ -1,7 +1,10 @@
 package com.example.alexbondar.cskarma2;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.provider.CalendarContract;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,8 +62,12 @@ public class CustomAdapter extends BaseAdapter {
         hold.desc.setText(jobs.get(position).getDesc());
         hold.time.setText(jobs.get(position).getTimerange());
         hold.date.setText(jobs.get(position).getDate().toString());
+        byte[] decode = Base64.decode(jobs.get(position).getImg(),Base64.DEFAULT);
+        Bitmap decoded = BitmapFactory.decodeByteArray(decode,0,decode.length);
+        hold.image.setImageBitmap(decoded);
         return convertView;
     }
+
     private class Holder {
         TextView desc,area,time,date;
         ImageView image;
@@ -70,8 +77,6 @@ public class CustomAdapter extends BaseAdapter {
            time=(TextView)itemView.findViewById(R.id.timerange);
            date=(TextView)itemView.findViewById(R.id.date);
            image=(ImageView) itemView.findViewById(R.id.imagelogo);
-
-
 
         }
     }
