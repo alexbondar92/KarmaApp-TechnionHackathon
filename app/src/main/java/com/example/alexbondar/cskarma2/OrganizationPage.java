@@ -32,7 +32,6 @@ public class OrganizationPage extends AppCompatActivity {
 
         Bundle extra_info = getIntent().getExtras();
         List<Job> jobs = new LinkedList<>(); //TODO: use the context to get the relevant list.
-
     }
 
 
