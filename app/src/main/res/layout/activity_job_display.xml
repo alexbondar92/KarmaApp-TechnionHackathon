@@ -6,18 +6,49 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".JobDisplayActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_weight="2"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
 
-        <TextView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/allbutton"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/northbutton"
+            android:layout_marginEnd="85dp"
+            android:text="All"
+            android:layout_alignParentTop="true"/>
+
+        <Button
+            android:id="@+id/northbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="po filter"/>
+            android:layout_alignEnd="@+id/centerbutton"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="85dp"
+            android:text="North" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/centerbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/southbutton"
+            android:text="Center" />
+
+        <Button
+            android:id="@+id/southbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="10dp"
+            android:text="South" />
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_weight="12"
