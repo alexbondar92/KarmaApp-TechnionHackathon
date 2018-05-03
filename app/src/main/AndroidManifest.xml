@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".Register" />
         <activity android:name=".OrganizationPage" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".OpeningScreenActivity" />
         <activity android:name=".UserLoginActivity" />
         <activity android:name=".JobDisplayActivity" />
@@ -29,7 +29,7 @@
         <activity
             android:name=".DisplayOrganizationsActivity"
             android:label="@string/title_activity_display_organizations"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
