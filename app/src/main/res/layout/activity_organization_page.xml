@@ -11,19 +11,46 @@
         android:id="@+id/orgpage_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/orgpage_name_title"
-        android:text="name" />
-
-    <TextView
-        android:id="@+id/orgpage_name_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:text="Organization Name: " />
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:text="name"
+        />
 
     <TextView
         android:id="@+id/orgpage_desc"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/orgpage_name"
+        android:layout_centerHorizontal="true"
+        android:text="description"
+        />
+
+    <LinearLayout
+        android:id="@+id/orgpage_website_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/orgpage_desc"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:id="@+id/orgpage_website_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Organization Website: "
+            />
+
+        <TextView
+            android:id="@+id/orgpage_website"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="url"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/orgpage_website_layout"
+        />
+
 
 </RelativeLayout>
