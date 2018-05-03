@@ -11,10 +11,12 @@ import android.widget.TextView;
 
 public class OpeningScreenActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        super.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        ActionBar actionBar = getSupportActionBar();
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opening_screen);
@@ -23,13 +25,10 @@ public class OpeningScreenActivity extends AppCompatActivity {
     public void goToOrganization(View view) {
         Intent intent = new Intent(getApplicationContext(),UserLoginActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void goToUser(View view) {
-        //ImageButton answerTextView = (ImageButton)findViewById(R.id.organization);
         Intent intent = new Intent(getApplicationContext(),UserLoginActivity.class);
         startActivity(intent);
-        finish();
     }
 }
