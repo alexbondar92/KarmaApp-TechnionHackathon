@@ -98,7 +98,7 @@ public class JobDisplayActivity extends AppCompatActivity {
                         finish();
                     }
                 });
-            }
+            }//
         });
         final CustomAdapter customAdapter = new CustomAdapter(this,DataParser.getAllJobs());
         listv.setAdapter(customAdapter);
