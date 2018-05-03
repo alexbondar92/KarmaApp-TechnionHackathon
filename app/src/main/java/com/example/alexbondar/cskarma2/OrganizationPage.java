@@ -33,12 +33,18 @@ public class OrganizationPage extends AppCompatActivity {
         // some kind of black magic to get the organization.
         // assume at end, I know something.
 
-        int this_id = getIntent().getExtras().getInt("id");
+        String this_name = getIntent().getStringExtra("name");
 
-        List<Job> jobs = DataParser.getAllJobs()
+        Organization this_org = DataParser.getAllOrganization()
                 .stream()
-                .filter(j1 -> (j1.getOrganization().getId() == this_id))
-                .collect(Collectors.toList());
+                .distinct()
+                .filter(o1 -> (o1.getName().equals(this_name)))
+                .collect(Collectors.toList())
+                .get(0);
+        List<Job> these_jobs = this_org.getJobs();
+
+        jobs.setAdapter(new CustomAdapter(this,DataParser.getAllJobs()));
+
     }
 
 
