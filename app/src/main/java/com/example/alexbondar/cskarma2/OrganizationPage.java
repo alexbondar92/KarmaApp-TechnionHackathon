@@ -50,7 +50,7 @@ public class OrganizationPage extends AppCompatActivity {
                 .filter(o1 -> (o1.getName().equals(this_name)))
                 .collect(Collectors.toList())
                 .get(0);
-        List<Job> these_jobs = this_org.getJobs();
+
 
         name.setText(this_org.getName());
         description.setText(this_org.getDesc());
@@ -71,13 +71,13 @@ public class OrganizationPage extends AppCompatActivity {
         });
         nameAgain.setText(this_org.getName());
 
-        List<Job> list = DataParser.getAllJobs();
-        jobs.setAdapter(new CustomAdapter(this,list));
+        List<Job> these_jobs = this_org.getJobs();
+        jobs.setAdapter(new CustomAdapter(this,these_jobs));
         jobs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(view.getContext(),JobActivity.class);
-                i.putExtra("ID", position );
+                i.putExtra("ID", these_jobs.get(position).getId());
                 startActivity(i);
             }
         });
