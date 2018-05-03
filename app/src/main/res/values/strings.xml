@@ -2,4 +2,9 @@
     <string name="app_name">CSKarma2</string>
     <string name="action_settings">Settings</string>
     <string name="test_organization">01_data.xml</string>
+    <string name="title_activity_display_organizations">DisplayOrganizationsActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
