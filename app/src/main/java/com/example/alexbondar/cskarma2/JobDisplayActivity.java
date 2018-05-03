@@ -49,7 +49,7 @@ public class JobDisplayActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final CustomAdapter customAdapter = new CustomAdapter(view.getContext(),DataParser.getAllJobs()
-                .stream().filter(j->j.getRegion().equals("north"))
+                .stream().filter(j->j.getRegion().equals("North"))
                         .collect(Collectors.toList()));
                 listv.setAdapter(customAdapter);
                 listv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,7 +67,7 @@ public class JobDisplayActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final CustomAdapter customAdapter = new CustomAdapter(view.getContext(),DataParser.getAllJobs()
-                        .stream().filter(j->j.getRegion().equals("center"))
+                        .stream().filter(j->j.getRegion().equals("Center"))
                         .collect(Collectors.toList()));
                 listv.setAdapter(customAdapter);
                 listv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,17 +84,18 @@ public class JobDisplayActivity extends AppCompatActivity {
         south.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final CustomAdapter customAdapter = new CustomAdapter(view.getContext(),DataParser.getAllJobs()
-                        .stream().filter(j->j.getRegion().equals("south"))
-                        .collect(Collectors.toList()));
+                List<Job> southerns = DataParser.getAllJobs()
+                        .stream().filter(j->j.getRegion().equals("South")).collect(Collectors.toList());
+                final CustomAdapter customAdapter = new CustomAdapter(view.getContext(), southerns);
                 listv.setAdapter(customAdapter);
                 listv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                         Intent i = new Intent(view.getContext(),JobActivity.class);
-                        i.putExtra("ID", position );
+                        i.putExtra("ID", southerns.get(position).getId());
                         startActivity(i);
+                        finish();
                     }
                 });
             }
