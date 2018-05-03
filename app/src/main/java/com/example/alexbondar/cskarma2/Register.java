@@ -59,7 +59,7 @@ public class Register extends AppCompatActivity {
                 }
 
                 if(!flag) {
-                    Intent intent = new Intent(view.getContext(), DisplayOrganizationsActivity.class);
+                    Intent intent = new Intent(view.getContext(), DisplayActivity.class);
                     startActivity(intent);
                 }
             }
