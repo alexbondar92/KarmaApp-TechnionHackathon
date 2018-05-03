@@ -38,7 +38,10 @@ public class Register extends AppCompatActivity {
                 if(!isEmailValid(email.getText().toString())){
                     email.setError("Please enter a valid email address");
                 }
-                if(!pw1.getText().toString().equals(pw2.getText().toString())){
+                if(pw1.getText().toString().equals("")&& !pw1.getText().toString().equals(pw2.getText().toString())){
+                    if(pw1.getText().toString().equals("")){
+                        pw1.setError("Password cannot be empty");
+                    }
                     pw1.setError("Password does not match");
                     pw2.setError("Password does not match");
                 }
