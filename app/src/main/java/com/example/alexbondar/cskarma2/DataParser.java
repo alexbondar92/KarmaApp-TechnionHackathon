@@ -2,11 +2,16 @@ package com.example.alexbondar.cskarma2;
 
 //used to parse data from the database.
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DataParser {
 
-    // public List<Job> getAllJobs() {} ***implement
+    public static List<Job> getAllJobs() {
+        return new ArrayList<>();
+    }
 
-    // public List<Organization> getAllOrganizations() {} ***implement
+    public static List<Organization> getAllOrganizations() {
+        return new ArrayList<>();
+    }
 }
