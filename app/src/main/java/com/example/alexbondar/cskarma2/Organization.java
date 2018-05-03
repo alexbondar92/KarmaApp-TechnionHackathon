@@ -11,12 +11,11 @@ public class Organization {
     private String name;
     private CharSequence desc;
     private URL website;
-    private List<Job> jobs;
+    private int id;
 
     public Organization(String name, CharSequence desc, String website_url) {
         this.name = name;
         this.desc = desc;
-        this.jobs = new LinkedList<>();
         try {
             this.website = new URL(website_url);
         } catch (MalformedURLException e) {
@@ -36,7 +35,5 @@ public class Organization {
         return website;
     }
 
-    public List<Job> getJobs() {
-        return jobs;
-    }
+    public int getId() { return id; }
 }

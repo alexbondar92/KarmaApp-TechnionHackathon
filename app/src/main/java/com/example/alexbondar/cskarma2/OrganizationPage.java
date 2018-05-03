@@ -1,5 +1,6 @@
 package com.example.alexbondar.cskarma2;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,9 @@ import android.widget.TextView;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.example.alexbondar.cskarma2.Job;
 
 public class OrganizationPage extends AppCompatActivity {
 
@@ -15,7 +19,6 @@ public class OrganizationPage extends AppCompatActivity {
     TextView description;
     TextView url;
     ListView jobs;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +33,12 @@ public class OrganizationPage extends AppCompatActivity {
         // some kind of black magic to get the organization.
         // assume at end, I know something.
 
-        Bundle extra_info = getIntent().getExtras();
-        List<Job> jobs = new LinkedList<>(); //TODO: use the context to get the relevant list.
+        int this_id = getIntent().getExtras().getInt("id");
+
+        List<Job> jobs = DataParser.getAllJobs()
+                .stream()
+                .filter(j1 -> (j1.getOrganization().getId() == this_id))
+                .collect(Collectors.toList());
     }
 
 
