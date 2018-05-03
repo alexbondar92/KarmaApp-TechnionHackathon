@@ -52,8 +52,10 @@ public class DataParser {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
+
+
         });
-        return null;
+        return list;
 
     }
 
