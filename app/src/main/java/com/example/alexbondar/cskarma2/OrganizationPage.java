@@ -1,9 +1,11 @@
 package com.example.alexbondar.cskarma2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -44,7 +46,14 @@ public class OrganizationPage extends AppCompatActivity {
         List<Job> these_jobs = this_org.getJobs();
 
         jobs.setAdapter(new CustomAdapter(this,DataParser.getAllJobs()));
-
+        jobs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(view.getContext(),JobActivity.class);
+                i.putExtra("ID", position );
+                startActivity(i);
+            }
+        });
     }
 
 
