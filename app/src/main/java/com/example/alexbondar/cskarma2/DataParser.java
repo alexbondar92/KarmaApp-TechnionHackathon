@@ -21,9 +21,10 @@ import static android.content.ContentValues.TAG;
 
 public class DataParser {
 
-    private boolean flag;
+    static DataSnapshot data;
 
-    public static void getAllJobs(List<Job> list) {
+    public static void getData(){
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
@@ -32,16 +33,8 @@ public class DataParser {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                Map<String, Object> db = (Map<String, Object>) dataSnapshot.getValue();
-                Map<String, Object> orgs = (Map<String, Object>) db.get("Organizations");
 
-                for (String i:orgs.keySet()
-                     ) {
-                    Map<String, Object> o =(Map<String, Object>) orgs.get(i);
-                    Map<String, Object> jobs = (Map<String, Object>) o.get("jobs");
-
-                    list.addAll(parse_jobs(jobs));
-                }
+                data = dataSnapshot;
             }
 
             @Override
@@ -49,47 +42,50 @@ public class DataParser {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
+    });
+    }
 
-        });
 
+    public static List<Job> getAllJobs() {
+        List<Job> list = new ArrayList<>();
+
+        Map<String, Object> db = (Map<String, Object>) data.getValue();
+        Map<String, Object> orgs = (Map<String, Object>) db.get("Organizations");
+
+        for (String i : orgs.keySet()
+                ) {
+            Map<String, Object> o = (Map<String, Object>) orgs.get(i);
+            Map<String, Object> jobs = (Map<String, Object>) o.get("jobs");
+
+            list.addAll(parse_jobs(jobs));
+        }
+        return list;
     }
 
     public static Job getAJob(int id){
-        List<Job> l = new ArrayList<>();
-        getAllJobs(l);
+        Boolean f = false;
+
+        List<Job> l = getAllJobs();
         return l.stream().filter(j->j.getId() == id).collect(Collectors.toList()).get(0);
     }
 
-    public static void getAllOrganization(List<Organization> list){
+    public static List<Organization> getAllOrganizations(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                Map<String, Object> db = (Map<String, Object>) dataSnapshot.getValue();
-                Map<String, Object> orgs = (Map<String, Object>) db.get("Organizations");
+        List<Organization> list = new ArrayList<>();
 
-                for (String i:orgs.keySet()
-                        ) {
-                    Map<String, Object> o =(Map<String, Object>) db.get(i);
-                    List<Job> jobs= new ArrayList<>();
-                    list.add(new Organization(i, (String) o.get("desc"), (String) o.get("website"), (String)o.get("type"), jobs));
+        Map<String, Object> db = (Map<String, Object>) data.getValue();
+        Map<String, Object> orgs = (Map<String, Object>) db.get("Organizations");
 
-                }
+                for (String i:orgs.keySet()) {
+                Map<String, Object> o =(Map<String, Object>) orgs.get(i);
+                List<Job> jobs = parse_jobs((Map<String, Object>)o.get("jobs"));
+                list.add(new Organization(i, (String) o.get("desc"), (String) o.get("website"), (String)o.get("type"), jobs));
             }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-
-
-        });
-    }
+            return list;
+        }
 
     private static List<Job> parse_jobs(Map<String, Object> jobs){
         List<Job> list = new ArrayList<>();

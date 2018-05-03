@@ -24,6 +24,8 @@ import java.util.List;
 
 public class DisplayActivity extends AppCompatActivity {
 
+    public static Boolean flag = false;
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -59,11 +61,12 @@ public class DisplayActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        /**
         List<Job> job_list = new ArrayList<>();
         DataParser.getAllJobs(job_list);
 
         List<Organization> org_list = new ArrayList<>();
-        DataParser.getAllOrganization(org_list);
+        DataParser.getAllOrganization(org_list);**/
 
     }
 

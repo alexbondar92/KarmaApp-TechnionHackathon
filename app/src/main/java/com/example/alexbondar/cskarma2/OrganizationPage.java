@@ -42,8 +42,7 @@ public class OrganizationPage extends AppCompatActivity {
 
         String this_name = getIntent().getStringExtra("name");
 
-        List<Organization> these_orgs = new ArrayList<>();
-        DataParser.getAllOrganization(these_orgs);
+        List<Organization> these_orgs = DataParser.getAllOrganizations();
 
         Organization this_org = these_orgs
                 .stream()
@@ -72,8 +71,7 @@ public class OrganizationPage extends AppCompatActivity {
         });
         nameAgain.setText(this_org.getName());
 
-        List<Job> list = new ArrayList<>();
-        DataParser.getAllJobs(list);
+        List<Job> list = DataParser.getAllJobs();
         jobs.setAdapter(new CustomAdapter(this,list));
         jobs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

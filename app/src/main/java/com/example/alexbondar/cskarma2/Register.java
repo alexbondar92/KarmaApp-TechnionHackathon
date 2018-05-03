@@ -58,8 +58,9 @@ public class Register extends AppCompatActivity {
                     flag=true;
                 }
 
-                if(!flag) {
+                if(true) {
                     Intent intent = new Intent(view.getContext(), OrganizationPage.class);
+                    intent.putExtra("name", "Latet");
                     startActivity(intent);
 
                 }
