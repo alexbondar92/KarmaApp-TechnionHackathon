@@ -19,7 +19,7 @@ public class Job {
     private Date date;
     private String timerange;
 
-    public Jobs() {
+    public Job() {
     }
 
     public String getName() {
