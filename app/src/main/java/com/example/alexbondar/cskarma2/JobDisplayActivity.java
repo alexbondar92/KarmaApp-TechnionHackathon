@@ -16,9 +16,9 @@ public class JobDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_job_display);
         listv = (ListView)findViewById(R.id.listv);
 
-        //CustomAdapter customAdapter = new CustomAdapter(this,DataParser.getAllJobs());
-        //listv.setAdapter(customAdapter);
-
+        CustomAdapter customAdapter = new CustomAdapter(this,DataParser.getAllJobs());
+        listv.setAdapter(customAdapter);
+        
     }
 
 }
