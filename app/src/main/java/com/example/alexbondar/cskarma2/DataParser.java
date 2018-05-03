@@ -18,11 +18,13 @@ import static android.content.ContentValues.TAG;
 
 public class DataParser {
 
+    private boolean flag;
+
     public static List<Job> getAllJobs() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
-        List<Job> list = new ArrayList<>();
+        final List<Job> list = new ArrayList<>();
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -34,7 +36,14 @@ public class DataParser {
 
                 for (String i:orgs.keySet()
                      ) {
+                    Map<String, Object> o =(Map<String, Object>) db.get(i);
+                    Map<String, Object> jobs = (Map<String, Object>) o.get("jobs");
 
+                    for (String j:jobs.keySet()) {
+
+                        Map<String, String> a_job=(Map<String, String>) jobs.get(j);
+                        list.add(new Job(j, Integer.parseInt(a_job.get("id")), a_job.get("desc"), a_job.get("pic"), a_job.get("region"), a_job.get("region"), a_job.get("data"), a_job.get("time_range"), a_job.get("type")));
+                        }
                 }
             }
 
