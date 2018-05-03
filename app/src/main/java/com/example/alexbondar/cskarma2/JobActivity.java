@@ -16,13 +16,17 @@ public class JobActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        TextView myAwesomeTextView = (TextView)findViewById(R.id.currentJob);
-        myAwesomeTextView.setText("My Awesome Text");
+        TextView title_name = (TextView)findViewById(R.id.currentJob);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String value = extras.getString("key");
+            String value = extras.getString("ID");
             //The key argument here must match that used in the other activity
+
+            Job current = DataParser.getAJob(Integer.parseInt(value));
+            title_name.setText(current.getName());
+
         }
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);

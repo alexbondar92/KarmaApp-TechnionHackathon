@@ -2,6 +2,7 @@ package com.example.alexbondar.cskarma2;
 
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -18,6 +19,8 @@ public class Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_register);
         firstname=(EditText)findViewById(R.id.firstname);
         lastname=(EditText)findViewById(R.id.lastname);
