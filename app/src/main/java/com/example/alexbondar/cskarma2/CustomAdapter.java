@@ -61,7 +61,7 @@ public class CustomAdapter extends BaseAdapter {
         hold.area.setText(jobs.get(position).getRegion());
         hold.desc.setText(jobs.get(position).getDesc());
         hold.time.setText(jobs.get(position).getTimerange());
-        hold.date.setText(jobs.get(position).getDate().toString());
+        hold.date.setText(jobs.get(position).getDate());
         byte[] decode = Base64.decode(jobs.get(position).getImg(),Base64.DEFAULT);
         Bitmap decoded = BitmapFactory.decodeByteArray(decode,0,decode.length);
         hold.image.setImageBitmap(decoded);
@@ -71,13 +71,12 @@ public class CustomAdapter extends BaseAdapter {
     private class Holder {
         TextView desc,area,time,date;
         ImageView image;
-        public Holder(View itemView){
+        Holder(View itemView){
            area=(TextView)itemView.findViewById(R.id.region);
            desc=(TextView)itemView.findViewById(R.id.desc);
            time=(TextView)itemView.findViewById(R.id.timerange);
            date=(TextView)itemView.findViewById(R.id.date);
            image=(ImageView) itemView.findViewById(R.id.imagelogo);
-
         }
     }
 }

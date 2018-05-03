@@ -29,14 +29,18 @@ public class Register extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                boolean flag=false;
                 if(firstname.getText().toString().equals("")){
                     firstname.setError("Please enter a first name");
+                    flag=true;
                 }
                 if(lastname.getText().toString().equals("")){
                     lastname.setError("Please enter a last name");
+                    flag=true;
                 }
                 if(!isEmailValid(email.getText().toString())){
                     email.setError("Please enter a valid email address");
+                    flag=true;
                 }
                 if(pw1.getText().toString().equals("")&& !pw1.getText().toString().equals(pw2.getText().toString())){
                     if(pw1.getText().toString().equals("")){
@@ -44,14 +48,17 @@ public class Register extends AppCompatActivity {
                     }
                     pw1.setError("Password does not match");
                     pw2.setError("Password does not match");
+                    flag=true;
                 }
                 if(!isPhoneValid(phone.getText().toString())){
                     phone.setError("Please enter a valid phone number");
+                    flag=true;
                 }
 
-                Intent intent = new Intent(view.getContext(), DisplayOrganizationsActivity.class);
-                startActivity(intent);
-
+                if(!flag) {
+                    Intent intent = new Intent(view.getContext(), DisplayOrganizationsActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
