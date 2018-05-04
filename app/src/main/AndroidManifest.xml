@@ -31,7 +31,8 @@
             android:label="@string/title_activity_display_organizations"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DEMO" />
-        <activity android:name=".Serverside_login"></activity>
+        <activity android:name=".Serverside_login" />
+        <activity android:name=".OrgDisplayPage"></activity>
     </application>
 
 </manifest>

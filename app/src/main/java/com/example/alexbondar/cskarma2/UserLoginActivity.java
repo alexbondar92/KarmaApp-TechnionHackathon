@@ -29,10 +29,10 @@ public class UserLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boolean flag=false;
-                /*if(!isEmailValid(username.getText().toString())){
+                if(!isEmailValid(username.getText().toString())){
                     username.setError("Please enter a valid email address");
                     flag=true;
-                }*/
+                }
                 if(pass.getText().toString().equals("")){
                     pass.setError("Enter a password");
                     flag=true;

@@ -64,7 +64,7 @@ public class CustomAdapter extends BaseAdapter {
         if(jobs.get(position).getImg().equals("Ilan")){
             hold.image.setImageResource(R.drawable.ilan);
         }
-        if(jobs.get(position).getImg().equals("Meod Hod")){
+        if(jobs.get(position).getImg().equals("Meon Hod")){
             hold.image.setImageResource(R.drawable.hod);
         }
         if(jobs.get(position).getImg().equals("Leket Yisrael")){

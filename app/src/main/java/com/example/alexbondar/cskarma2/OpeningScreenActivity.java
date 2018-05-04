@@ -23,7 +23,7 @@ public class OpeningScreenActivity extends AppCompatActivity {
     }
 
     public void goToOrganization(View view) {
-        Intent intent = new Intent(getApplicationContext(),DEMO.class);
+        Intent intent = new Intent(getApplicationContext(),Serverside_login.class);
         startActivity(intent);
     }
 
