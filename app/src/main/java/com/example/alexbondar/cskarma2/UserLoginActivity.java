@@ -13,7 +13,7 @@ public class UserLoginActivity extends AppCompatActivity {
     EditText pass,username;
     Button login;
     TextView signup;
-    boolean flag=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ActionBar actionBar = getSupportActionBar();
@@ -28,21 +28,22 @@ public class UserLoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isEmailValid(username.getText().toString())){
+                boolean flag=false;
+                /*if(!isEmailValid(username.getText().toString())){
                     username.setError("Please enter a valid email address");
                     flag=true;
-                }
-                if(!pass.getText().toString().equals("")){
+                }*/
+                if(pass.getText().toString().equals("")){
                     pass.setError("Enter a password");
                     flag=true;
                 }
                 if(!flag){
-                    Intent n= new Intent(getApplicationContext(),JobDisplayActivity.class);
+                    Intent n= new Intent(v.getContext(),JobDisplayActivity.class);
                     startActivity(n);
-                    finish();
-                }
+               }
             }
         });
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
