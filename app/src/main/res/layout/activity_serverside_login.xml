@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/karmabgpurple"
+    android:background="@drawable/karmabgblue"
     android:orientation="vertical"
     android:padding="50dp"
-    tools:context=".UserLoginActivity">
+    tools:context=".Serverside_login">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Login"
-        android:textSize="45dp"
+        android:textSize="45sp"
         android:textStyle="bold" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:id="@+id/username"
-        android:hint="Email Address"
+        android:id="@+id/serverside_username"
+        android:hint="Email Adress"
         android:layout_marginTop="20dp"
         android:inputType="textEmailAddress"
         android:textAlignment="center" />
@@ -33,12 +33,12 @@
         android:layout_gravity="center"
         android:hint="Password"
         android:inputType="textPassword"
-        android:id="@+id/pass"
+        android:id="@+id/serverside_pass"
         android:layout_marginTop="10dp"
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/serverside_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
@@ -52,7 +52,7 @@
         android:layout_marginTop="25dp"
         android:layout_gravity="center"
         android:textAlignment="center"
-        android:id="@+id/signup"
+        android:id="@+id/serverside_signup"
         android:textSize="16dp"
         android:textStyle="bold"
         android:text="New member? Click here to Sign up"/>

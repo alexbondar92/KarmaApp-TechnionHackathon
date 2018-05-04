@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class UserLoginActivity extends AppCompatActivity {
+public class Serverside_login extends AppCompatActivity {
     EditText pass,username;
     Button login;
     TextView signup;
@@ -19,12 +19,12 @@ public class UserLoginActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_login);
-        pass = (EditText)findViewById(R.id.pass);
-        username = (EditText)findViewById(R.id.username);
-        login = (Button)findViewById(R.id.login);
+        setContentView(R.layout.activity_serverside_login);
+        pass = (EditText)findViewById(R.id.serverside_pass);
+        username = (EditText)findViewById(R.id.serverside_username);
+        login = (Button)findViewById(R.id.serverside_login);
 
-        signup = (TextView)findViewById(R.id.signup);
+        signup = (TextView)findViewById(R.id.serverside_signup);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +40,7 @@ public class UserLoginActivity extends AppCompatActivity {
                 if(!flag){
                     Intent n= new Intent(v.getContext(),JobDisplayActivity.class);
                     startActivity(n);
-               }
+                }
             }
         });
 
