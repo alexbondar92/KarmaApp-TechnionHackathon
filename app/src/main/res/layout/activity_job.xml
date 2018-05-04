@@ -18,6 +18,7 @@
         android:layout_marginTop="28dp"
         android:text="@android:string/yes"
         android:textAlignment="center"
+        android:textColor="@android:color/background_light"
         android:textIsSelectable="false"
         android:textSize="30sp"
         android:textStyle="normal|bold"
@@ -28,11 +29,13 @@
 
     <ImageView
         android:id="@+id/job_pic"
-        android:layout_width="133dp"
+        android:layout_width="128dp"
         android:layout_height="128dp"
+        android:layout_marginBottom="7dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/job_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/job_time_and_place"
         app:layout_constraintTop_toBottomOf="@+id/job_title"
@@ -41,28 +44,30 @@
     <TextView
         android:id="@+id/job_time_and_place"
         android:layout_width="189dp"
-        android:layout_height="77dp"
+        android:layout_height="68dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="19dp"
         android:text="Organization,his description"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/job_goto_org"
         app:layout_constraintEnd_toStartOf="@+id/job_pic"
+        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/job_title" />
 
     <TextView
         android:id="@+id/job_description"
-        android:layout_width="327dp"
+        android:layout_width="324dp"
         android:layout_height="227dp"
-        android:layout_marginBottom="14dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginStart="29dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/button"
         android:text="Time and Date and Place"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/job_attend_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/job_pic" />
 
     <Button
@@ -70,7 +75,7 @@
         android:layout_width="327dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginStart="29dp"
         android:layout_marginTop="10dp"
         android:text="Attend"
@@ -78,6 +83,7 @@
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/job_description" />
 
@@ -88,12 +94,12 @@
         android:layout_marginBottom="7dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="7dp"
         android:text="Organization"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toTopOf="@+id/job_description"
         app:layout_constraintEnd_toStartOf="@+id/job_pic"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/job_time_and_place" />
 </android.support.constraint.ConstraintLayout>
