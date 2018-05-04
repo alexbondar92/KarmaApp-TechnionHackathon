@@ -1,9 +1,7 @@
 package com.example.alexbondar.cskarma2;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class JobActivity extends AppCompatActivity {
@@ -19,15 +17,20 @@ public class JobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
 
-        TextView title_name = (TextView)findViewById(R.id.currentJob);
+        TextView title_name = (TextView)findViewById(R.id.job_title);
+        TextView time_and_place = (TextView) findViewById(R.id.job_time_and_place);
+        TextView description = (TextView) findViewById(R.id.job_description);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            int value = extras.getInt("ID");
+            int value = (int) extras.getLong("ID");
             //The key argument here must match that used in the other activity
 
             Job current = DataParser.getAJob(value);
+            String str = current.getDate() + ", " + current.getRegion();
             title_name.setText(current.getName());
-
+            time_and_place.setText(str);
+            description.setText(current.getDesc());
         }
     }
 }

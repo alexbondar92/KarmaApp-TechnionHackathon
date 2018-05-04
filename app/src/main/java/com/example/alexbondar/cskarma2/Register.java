@@ -58,7 +58,7 @@ public class Register extends AppCompatActivity {
                     flag=true;
                 }
 
-                if(!flag) {
+                if(true) {
                     Intent intent = new Intent(view.getContext(), JobDisplayActivity.class);
                     startActivity(intent);
 
