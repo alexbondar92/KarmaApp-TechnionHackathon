@@ -30,7 +30,8 @@
             android:name=".DisplayActivity"
             android:label="@string/title_activity_display_organizations"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".DEMO"></activity>
+        <activity android:name=".DEMO" />
+        <activity android:name=".Serverside_login"></activity>
     </application>
 
 </manifest>
