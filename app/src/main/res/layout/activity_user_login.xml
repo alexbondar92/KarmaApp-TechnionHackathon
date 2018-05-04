@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Login"
+        android:textColor="?android:attr/floatingToolbarDividerColor"
         android:textSize="45dp"
         android:textStyle="bold" />
 
@@ -41,9 +42,10 @@
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         android:layout_marginTop="10dp"
+        android:padding="20dp"
         android:text="login"
+        android:textSize="18sp"
         android:textStyle="bold" />
     />
     <TextView
