@@ -89,10 +89,10 @@ public class DataParser {
 
     public static Organization getOrgByJobId(long id) {
         List<Organization> orgs = getAllOrganizations();
-        for (int i = 0; orgs.get(i) != null ; i++) {
-            List<Job> cur_jobs = orgs.get(i).getJobs();
-            for (int j = 0 ; cur_jobs.get(j) != null ; j++)
-                if (cur_jobs.get(j).getId() == id) return orgs.get(i);
+        for (Organization o : orgs) {
+            List<Job> cur_jobs = o.getJobs();
+            for (Job j : o.getJobs())
+                if (j.getId() == id) return o;
         }
         return null;
     }
