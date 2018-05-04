@@ -18,6 +18,7 @@ public class Job {
     private String date;
     private String timerange;
     private String type;
+    //private Boolean[] preferences;
 
     public Job(String name, long id, String desc, String img, String region, String type, String date, String timerange) {
         this.name = name;
@@ -28,6 +29,9 @@ public class Job {
         this.timerange = timerange;
         this.type = type;
         this.date = date;
+        //this.preferences = new Boolean[4];
+        ;
+
     }
 
     public String getName() {
