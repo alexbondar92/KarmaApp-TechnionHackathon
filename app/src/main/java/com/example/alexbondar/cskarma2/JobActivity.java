@@ -35,15 +35,16 @@ public class JobActivity extends AppCompatActivity {
             title_name.setText(current.getName());
             time_and_place.setText(str);
             description.setText(current.getDesc());
-        }
 
-        Button to_organization = (Button) findViewById(R.id.job_goto_org);
-        to_organization.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),OrganizationPage.class);
-                startActivity(i);
-            }
-        });
+            Button to_organization = (Button) findViewById(R.id.job_goto_org);
+            to_organization.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(v.getContext(),OrganizationPage.class);
+                    i.putExtra("name", DataParser.getOrgByJobId(current.getId()).getName());
+                    startActivity(i);
+                }
+            });
+        }
     }
 }
