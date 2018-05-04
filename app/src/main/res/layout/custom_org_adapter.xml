@@ -24,6 +24,7 @@
         android:layout_below="@+id/nameofuser"
         android:layout_marginEnd="19dp"
         android:layout_marginTop="19dp"
+        android:backgroundTint="@android:color/holo_green_light"
         android:text="accept" />
 
     <Button
@@ -32,5 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button2"
         android:layout_centerHorizontal="true"
+        android:backgroundTint="@android:color/holo_red_dark"
         android:text="decline" />
 </RelativeLayout>
