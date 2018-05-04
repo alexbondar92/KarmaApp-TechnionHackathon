@@ -14,9 +14,9 @@ public class OrgDisplayPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_org_display_page);
+        //setContentView(R.layout.activity_org_display_page);
 
-        listvv=(ListView)findViewById(R.id.listorgdis);
+        //listvv=(ListView)findViewById(R.id.listorgdis);
         List<Job> southerns = DataParser.getAllJobs()
                 .stream().filter(j->j.getImg().equals("Latet")).collect(Collectors.toList());
         final CustomAdapter customAdapter = new CustomAdapter(this, southerns);
