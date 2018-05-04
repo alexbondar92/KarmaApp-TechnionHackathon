@@ -15,6 +15,8 @@ public class JobActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         setContentView(R.layout.activity_job);
 
         TextView title_name = (TextView)findViewById(R.id.job_title);
