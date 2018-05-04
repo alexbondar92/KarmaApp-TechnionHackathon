@@ -21,6 +21,8 @@ public class JobDisplayActivity extends AppCompatActivity {
     Button north,center,south,all;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_display);
         listv = (ListView)findViewById(R.id.listv);
