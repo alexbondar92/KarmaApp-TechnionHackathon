@@ -26,8 +26,7 @@
         <activity android:name=".UserLoginActivity" />
         <activity android:name=".JobDisplayActivity" />
         <activity android:name=".JobActivity" />
-        <activity
-            android:name=".DisplayActivity"
+        <activity android:name=".DisplayActivity"
             android:label="@string/title_activity_display_organizations"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DEMO" />

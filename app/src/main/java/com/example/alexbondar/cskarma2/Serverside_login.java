@@ -38,7 +38,7 @@ public class Serverside_login extends AppCompatActivity {
                     flag=true;
                 }
                 if(!flag){
-                    Intent n= new Intent(v.getContext(),JobDisplayActivity.class);
+                    Intent n= new Intent(v.getContext(),OrgDisplayPage.class);
                     startActivity(n);
                 }
             }

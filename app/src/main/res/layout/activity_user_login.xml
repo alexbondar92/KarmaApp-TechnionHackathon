@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Login"
-        android:textColor="?android:attr/floatingToolbarDividerColor"
         android:textSize="45dp"
         android:textStyle="bold" />
 
