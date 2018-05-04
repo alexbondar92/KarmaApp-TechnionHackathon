@@ -85,7 +85,17 @@ public class DataParser {
             }
 
             return list;
+    }
+
+    public static Organization getOrgByJobId(long id) {
+        List<Organization> orgs = getAllOrganizations();
+        for (int i = 0; orgs.get(i) != null ; i++) {
+            List<Job> cur_jobs = orgs.get(i).getJobs();
+            for (int j = 0 ; cur_jobs.get(j) != null ; j++)
+                if (cur_jobs.get(j).getId() == id) return orgs.get(i);
         }
+        return null;
+    }
 
     private static List<Job> parse_jobs(Map<String, Object> jobs){
         List<Job> list = new ArrayList<>();

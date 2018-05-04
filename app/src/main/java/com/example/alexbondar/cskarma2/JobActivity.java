@@ -10,11 +10,7 @@ import android.widget.TextView;
 
 public class JobActivity extends AppCompatActivity {
 
-
-//    int job_id = getIntent().getExtras().getInt("id");
-
-//    TextView myAwesomeTextView = (TextView)findViewById(R.id.currentJob);
-
+    Organization our_organization;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +23,12 @@ public class JobActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            int value = (int) extras.getLong("ID");
+            long job_id = extras.getLong("ID");
+            int value = (int) job_id;
             //The key argument here must match that used in the other activity
 
             Job current = DataParser.getAJob(value);
+            our_organization = DataParser.getOrgByJobId(job_id);
             String str = current.getDate() + ", " + current.getRegion();
             title_name.setText(current.getName());
             time_and_place.setText(str);
