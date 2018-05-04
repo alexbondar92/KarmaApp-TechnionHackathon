@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,10 +19,11 @@ public class OrgDisplayPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_org_display_page);
-
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         listvv=(ListView)findViewById(R.id.listorgdis);
-        List<Job> latet = DataParser.getAllJobs()
-                .stream().filter(j->j.getImg().equals("Latet")).collect(Collectors.toList());
+        List<Job> latet = new ArrayList<>();
+        latet.add(new Job("test",1,"test","test","test","test","test","test"));
         final CustomAdapterOrg customAdapter = new CustomAdapterOrg(this, latet);
         listvv.setAdapter(customAdapter);
         listvv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

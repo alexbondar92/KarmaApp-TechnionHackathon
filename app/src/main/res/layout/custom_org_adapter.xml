@@ -13,6 +13,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="37dp"
+        android:textSize="16dp"
+        android:textStyle="bold"
         android:layout_marginTop="38dp"
         android:text="Israel Israli                                  054-4567890" />
 
@@ -25,7 +27,8 @@
         android:layout_marginEnd="19dp"
         android:layout_marginTop="19dp"
         android:backgroundTint="@android:color/holo_green_light"
-        android:text="accept" />
+        android:text="accept"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/button3"
